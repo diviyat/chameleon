@@ -1,6 +1,6 @@
 # chameleon
 
-This software has been further developed from the toolkit developed by Simon McManis, which can be found [here](https://github.com/smcmanis/chameleon).
+This toolkit has been further developed from the work of Simon McManis, which can be found [here](https://github.com/smcmanis/chameleon).
 
 ## Introduction
  \[Features, background, about, etc.\]
