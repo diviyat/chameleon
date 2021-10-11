@@ -3,7 +3,7 @@
 This toolkit has been further developed from the work of Simon McManis, which can be found [here](https://github.com/smcmanis/chameleon).
 
 ## Introduction
-Chameleon is a a Python-based toolkit which streamlines the process of feature selection for classification along with evaluating classification performances. The toolkit implements six existing feature selection and classification methods. An ensemble method of feature selection is also implemented, which uses features common to the methods evaluated to identify smaller subsets of highly relevant and important features for a given classification problem. 
+Chameleon is a a Python-based toolkit which streamlines the process of feature selection for classification and the evaluation of classification performances. The toolkit implements six existing feature selection and classification methods. An ensemble method of feature selection is also implemented, which uses features common to the methods evaluated to identify smaller subsets of highly relevant and important features for given classification problems. 
 
 
 ## Installation
