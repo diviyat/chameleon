@@ -63,6 +63,8 @@ def format_entrypoint(ftype: str,
         raise errors.NonBinaryTargets()
     y_binary = np.array(y == y_values[0], dtype=int)
     
+    y = np.reshape(y_binary, -1)
+
     write.write_pandas(X, outdir, out_X_name)
     write.write_numpy(y, outdir, out_y_name)
 
