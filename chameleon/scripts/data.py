@@ -20,7 +20,7 @@ def cli(ctx: click.Context) -> int:
 
 
 @cli.command()
-@click.option("--ftype", type=click.Choice(["mat", "arff"]),
+@click.option("--ftype", type=click.Choice(["csv", "mat", "arff"]),
               required=True, help="Type of data file")
 @click.option("--fpath", type=click.Path(exists=True),
               help="Path to file")
@@ -47,20 +47,23 @@ def format_entrypoint(ftype: str,
 
 
     X, y = None, None
-    if ftype == 'mat':
-        in_file = io.loadmat(fpath)
-        X = pd.DataFrame(in_file['X'], dtype=float)
-        y = pd.DataFrame(in_file['Y'])
+    if ftype == 'csv':
+        df = pd.read_csv(fpath)
+        X = df.iloc[:, 1:]
+        y = df.iloc[:, 0]
     elif ftype == 'arff':
         data, metadata = io.arff.loadarff(fpath)
         df = pd.DataFrame(data)
         X = df.iloc[:, :-1]
         y = df.iloc[:, -1]
+    elif ftype == 'mat':
+        in_file = io.loadmat(fpath)
+        X = pd.DataFrame(in_file['X'], dtype=float)
+        y = pd.DataFrame(in_file['Y'])
 
     # convert classes from whatever datatype they are to binary integers (0 and 1)
     y_values = np.unique(y)
-    if len(y_values) > 2:
-        raise errors.NonBinaryTargets()
+    
     y_binary = np.array(y == y_values[0], dtype=int)
     
     y = np.reshape(y_binary, -1)
