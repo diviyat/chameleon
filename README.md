@@ -57,6 +57,7 @@ Since Chameleon is currently in the prototype stage, there are some requirements
 1. Features and targets must be in one of the following formats:
     - `.mat` - A single file in the same format as the biological datasets seen [here](http://featureselection.asu.edu/datasets.php).
     - `.arff` - A single file with the targets as the last attribute.
+    - `.csv` - A single file with the targets as the first attribute.
 2. No missing values.
 
 ## Usage Example
